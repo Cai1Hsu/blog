@@ -1,6 +1,6 @@
 #include <bits/stdc++.h>
 #include <cstdio>
-#include "binarysearch.cpp"
+#include "binarysearch.h"
 
 int main()
 {
