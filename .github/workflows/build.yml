@@ -28,8 +28,14 @@ jobs:
           echo "::set-env name=BUILD_LOG_NAME::build_log.txt"
         fi
 
-    - name: Upload build log
-      # if: failure()
+    - name: Upload build log (Failed)
+      if: failure()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.BUILD_LOG_NAME }}
+        path: ${{ env.BUILD_LOG_PATH }}
+
+    - name: Upload build log (Success)
       uses: actions/upload-artifact@v2
       with:
         name: ${{ env.BUILD_LOG_NAME }}
