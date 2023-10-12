@@ -26,8 +26,8 @@ jobs:
       run: |
           if [ -f build_log.txt ]; then
             echo "Uploading build log"
-            echo "::set-env name=BUILD_LOG_PATH::$(pwd)/build_log.txt"
-            echo "::set-env name=BUILD_LOG_NAME::build_log.txt"
+            echo "BUILD_LOG_PATH=$(pwd)/build_log.txt" >> $GITHUB_ENV
+            echo "BUILD_LOG_NAME=build_log.txt" >> $GITHUB_ENV
           fi
 
     - name: Detect log file (Failed)
@@ -35,8 +35,8 @@ jobs:
       run: |
           if [ -f build_log.txt ]; then
             echo "Uploading build log"
-            echo "::set-env name=BUILD_LOG_PATH::$(pwd)/build_log.txt"
-            echo "::set-env name=BUILD_LOG_NAME::build_log.txt"
+            echo "BUILD_LOG_PATH=$(pwd)/build_log.txt" >> $GITHUB_ENV
+            echo "BUILD_LOG_NAME=build_log.txt" >> $GITHUB_ENV
           fi
 
     - name: Upload build log (Failed)
