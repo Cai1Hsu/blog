@@ -20,4 +20,17 @@ jobs:
         pip install -r requirements.txt
     
     - name: Run tests
-      run: python ci_build_cpp.py
+      run: |
+        python ci_build_cpp.py
+        if [ -f build_log.txt ]; then
+          echo "Uploading build log"
+          echo "::set-env name=BUILD_LOG_PATH::$(pwd)/build_log.txt"
+          echo "::set-env name=BUILD_LOG_NAME::build_log.txt"
+        fi
+
+    - name: Upload build log
+      # if: failure()
+      uses: actions/upload-artifact@v2
+      with:
+        name: ${{ env.BUILD_LOG_NAME }}
+        path: ${{ env.BUILD_LOG_PATH }}
