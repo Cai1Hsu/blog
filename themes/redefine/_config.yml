@@ -25,7 +25,7 @@ defaults:
   # Site logo
   logo:
   # Site avatar
-  avatar: /images/avatar.png
+  avatar: /images/avatar.webp
 # IMAGE CONFIGURATION <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
 
