@@ -4,8 +4,9 @@ date: 2023-10-10 12:33:07
 tags: ['算法', 'ACM']
 ---
 
-## 代码源文件
+## 查看代码源文件
 Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-1)
+CI 自动构建: [![CI](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml/badge.svg)](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
 
 ## P8682 [蓝桥杯 2019 省 B] 等差数列
 [题目链接](https://www.luogu.com.cn/problem/P8682)
@@ -149,7 +150,7 @@ ll qpow(ll a, ll b)
 
     range(0, 31, i)
     {
-        // 表示当前 b 的比特位，即是否需要乘上当期的 p
+        // 表示当前 b 的比特位，即是否需要乘上当前的 p
         bool need_cur_p = (b >> i) & 1;
 
         if (need_cur_p)
