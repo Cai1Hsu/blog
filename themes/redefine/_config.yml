@@ -142,7 +142,7 @@ home_banner:
   # Home banner social links
   social_links:
     # Whether to enable
-    enable: false
+    enable: true
     # Social links
     links:
       github:  https://github.com/Cai1Hsu # your GitHub URL
@@ -152,8 +152,8 @@ home_banner:
       email: cai1hsu@outlook.com  # your email
       # ...... # you can add more
     # Social links with QRcode drawers
-    qrs:
-      weixin:  # your Wechat QRcode image URL
+    #qrs:
+    #  weixin:  # your Wechat QRcode image URL
       # ...... # you can add more
 # HOME BANNER <<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<<< end
 
@@ -335,7 +335,7 @@ footer:
   # Icon in footer, write fontawesome icon code here
   icon: '<i class="fa-solid fa-heart fa-beat" style="--fa-animation-duration: 0.5s; color: #f54545"></i>'
   # The start time of the website, format: YYYY/MM/DD HH:mm:ss
-  start: 2022/8/17 11:45:14
+  start: 2023/10/10 20:00:00
   # Footer message
   customize:
   # ICP record number. See https://beian.miit.gov.cn/
