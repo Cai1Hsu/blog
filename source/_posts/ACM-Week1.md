@@ -242,7 +242,152 @@ int binarysearch(const vector<int> &arr, int target)
   return -1;
 }
 ```
+### 附：STL二分查找实现分析
+```cpp
+Pointer lowerbound(Pointer first, Pointer last, int val)
+{
+  int len = __distance(first, last)
+  /* 
+    // 标准库中非常朴素的实现，当然这是为了保证通用性，
+    // 自己写的时候不用这么麻烦
+    ptrdiff_t __n = 0;
+    while (__first != __last)
+    {
+      ++__first;
+      ++__n;
+    }
+    return __n;
+  */
 
+  while (len > 0)
+  {
+	  int half = len >> 1;
+	  Pointer middle = first;
+	  
+    // 把 middle 向前移动 half 个长度
+    __advance(middle, half);
+    // 所以，middle = first + half
+
+    // bool __comp(middle, val) => middle < val;
+
+    // too small
+	  if (__comp(middle, val))
+	  {
+      // 中值小于 target, 说明 target 在 (mid, last) 内。
+      //                    或许应该叫 (first, first + len)
+      // 将左边界设置成 middle + 1
+	    first = middle;
+	    ++first;
+
+      // 这个地方已经有了 distance 的值了，不用再次调用那个 O(n) 的函数
+      // 这样计算后的 len 不包含右端点
+      len = len - half - 1;
+	  }
+    // too big(or equal)
+	  else
+      // 中值大于 target，说明 target 在 (first, mid) 内
+      //                             即(first, first + len)
+      //                             因此无需处理 last，因为我们使用 first + len
+      
+      // 注意，该分支的前提是 `middle >= val`
+      // 也就是说，目标可能为最后一个值，因此这里要求包含端点
+      
+      // 根据上面的分析，答案一定在该分支内被找到。
+      // 此时 len = 0, 因此范围内有且只有一个数 *first。所以我们返回 first
+      len = half;
+	}
+  
+  return first;
+}
+```
+```cpp
+Pointer upperbound(Pointer first, Pointer last, int val)
+{
+  int len = __distance(first, last);
+
+  while (len > 0)
+	{
+	  int half = len >> 1;
+	  Pointer middle = first;
+	  std::advance(middle, half);
+
+    // bool __comp(first, second) => first < second;
+	  
+    // 注意传参的顺序不一样了
+
+    // 此处为 target < middle
+    if (comp(val, middle))
+	    len = half;
+	  else
+	  {
+	    first = middle;
+	    ++first;
+
+	    len = len - half - 1;
+	  }
+  }
+
+	return first;
+}
+```
+
+## P1824 进击的奶牛
+
+### 题目描述
+太长了自己去看: [link](https://www.luogu.com.cn/problem/P1824)
+
+### 思路
+二分查找，在范围内检测答案是否可行。
+关键在于实现查找的函数和判断的函数
+### 代码
+```cpp
+bool check(int gap)
+{
+  // 上一个牛的位置
+  int last = stalls[0];
+  int count = 1; // We have already put one cow in the first stall
+
+  range(1, n, i)
+  {
+    if (stalls[i] - last >= gap)
+    {
+      count++;
+      last = stalls[i];
+    }
+
+    if (count >= c) return true;
+  }
+
+  return false;
+}
+
+int binarysearch()
+{
+  int left = 0,
+    // 注意右界是距离的最大值不是 n
+    right = stalls.back() - stalls.front();
+
+  while (left < right)
+  {
+    // 注意向上取整，避免死循环，因为当答案可行时，我包含了 middle
+    int middle = (left + right + 1) >> 1;
+    
+    // 可行，继续往右边找，但要包含 middle
+    if (check(middle))
+    {
+      left = middle;
+    }
+    // 不可行，往左边找
+    else
+    {
+      right = middle - 1;
+    }
+  }
+
+  return left;
+}
+
+```
 
 ## 使用的宏
 
