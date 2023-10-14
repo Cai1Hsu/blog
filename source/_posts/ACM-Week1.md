@@ -389,6 +389,9 @@ int binarysearch()
 
 ```
 
+## 博客仓库
+[Cai1Hsu/blog](https://github.com/Cai1Hsu/blog)
+
 ## 使用的宏
 
 ```cpp
