@@ -106,3 +106,5 @@ deploy:
   repo: https://github.com/Cai1Hsu/blog
   branch: gh-pages
   message: [message]
+
+all_minifier: true
