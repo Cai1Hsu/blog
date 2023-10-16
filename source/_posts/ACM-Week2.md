@@ -1,5 +1,5 @@
 ---
-title: [ACM 预备训练] Week1 
+title: '[ACM 预备训练] Week2' 
 date: 2023-10-16 19:41:31
 tags: ['ACM', '算法']
 ---
@@ -100,4 +100,3 @@ int main()
   cout << endl << fixed << setprecision(2) << (f64)sum / costs.size();
 }
 ```
-
