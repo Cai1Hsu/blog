@@ -100,3 +100,50 @@ int main()
   cout << endl << fixed << setprecision(2) << (f64)sum / costs.size();
 }
 ```
+
+## P1803 凌乱的yyy / 线段覆盖
+[题目链接](https://www.luogu.com.cn/problem/P1803)
+
+### 思路
+1. 首先按结束时间排序，因为我们想尽量参加完所有比赛
+2. 然后依次遍历，判断能否参加即可。
+
+### 代码
+```cpp
+#define tstart second
+#define tend first
+int main()
+{
+  int n = cint();
+
+  vec<pii> durations(n);
+
+  repeat(n, i)
+    durations[i] = pii(cint(), cint());
+
+  sort(durations.begin(), durations.end(), cmp);
+
+  int cur = 0;
+  int ans = 0;
+
+  foreach(m, durations)
+  {
+    if (cur <= m.tstart)
+    {
+      ans++;
+      cur = m.tend;
+    }
+  }
+
+  cout << ans;
+}
+```
+
+## P1031 [NOIP2002 提高组] 均分纸牌
+[题目链接](https://www.luogu.com.cn/problem/P1031)
+
+### 思路
+
+### 代码
+```
+```

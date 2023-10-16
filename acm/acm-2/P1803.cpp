@@ -28,11 +28,36 @@ using namespace std;
 void untie() { ios_base::sync_with_stdio(0); cin.tie(0); }
 int cint() { int i; cin >> i; return i;}
 
+#define tstart second
+#define tend first
+
+bool cmp(pii a, pii b)
+{
+  return a.tend < b.tend;
+}
+
 int main()
 {
   int n = cint();
 
   vec<pii> durations(n);
 
+  repeat(n, i)
+    durations[i] = pii(cint(), cint());
 
-} 
+  sort(durations.begin(), durations.end(), cmp);
+
+  int cur = 0;
+  int ans = 0;
+
+  foreach(m, durations)
+  {
+    if (cur <= m.tstart)
+    {
+      ans++;
+      cur = m.tend;
+    }
+  }
+
+  cout << ans;
+}
