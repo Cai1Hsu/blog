@@ -160,3 +160,7 @@ int main()
 	}
 }
 ```
+
+## Source code
+源文件：[Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/extra-1/palindrome-prime)
+自动构建: [CI](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
