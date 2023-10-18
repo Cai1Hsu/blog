@@ -1,8 +1,5 @@
 **/a.out
 
-acm/**/*
-!acm/**/*.*
-
 .DS_Store
 Thumbs.db
 db.json
