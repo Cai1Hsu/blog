@@ -143,7 +143,40 @@ int main()
 [题目链接](https://www.luogu.com.cn/problem/P1031)
 
 ### 思路
+1. 忽略已经处于平衡状态的堆。
+2. 将当前堆的差异移动到下一组，在最后一组时一定使得所有堆平衡。
+3. 统计操作数即可。
 
 ### 代码
-```
+```cpp
+int main()
+{
+  int n = cint();
+
+  vec<int> arr(n);
+
+  int avg = 0;
+  
+  for(var &m : arr)
+    avg += m = cint();
+
+  avg /= n;
+
+  for(var &m : arr)
+    m -= avg;
+
+  int op = 0;
+
+  range(0, n - 1, i)
+  {
+    if (arr[i] == 0)
+      continue;
+
+    arr[i + 1] += arr[i];
+    
+    op++;
+  }
+  
+  cout << op; 
+}
 ```
