@@ -151,17 +151,14 @@ fn main() {
 
     let mut ans: i32 = -1;
 
-    let mut i: i32 = 1;
-    for rect in carpets {
+    for (i, rect) in carpets.iter().enumerate() {
         if rect.first.x <= target.x && 
             rect.first.y <= target.y && 
             rect.second.x >= target.x &&
             rect.second.y >= target.y
         {
-            ans = i; 
+            ans = i + 1; 
         }
-
-        i += 1;
     }
 
     println!("{}", ans);
