@@ -74,7 +74,7 @@ fn main() {
             rect.second.x >= target.x &&
             rect.second.y >= target.y
         {
-            ans = i + 1; 
+            ans = (i as i32) + 1; 
         }
     }
 

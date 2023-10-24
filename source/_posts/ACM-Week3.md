@@ -69,9 +69,47 @@ int main()
 ```
 ## Hard ~ P1044 [NOIP2003 普及组] 栈
 [题目链接](https://www.luogu.com.cn/problem/P1044)
-```Csharp
 
+### 思路
+创建一个 `dp[i,j]` 记录 当 *已经（总共）压入`i`个元素* 和 *已经（总共）弹出`j`个元素* 时的情况数。
+
+### 代码
+```Csharp
+int n = int.Parse(Console.ReadLine()!);
+
+long[,] dp = new(n + 2, n + 2);
+
+// If we dont push any element, we can't pop
+for (int popped = 0; popped <= n; popped++)
+{
+    dp[0, popped] = 1;
+}
+
+for (int pushed = 1; pushed <= n; pushed++)
+{
+    for (int popped = pushed; popped <= n; popped++)
+    {
+        if (pushed == popped)
+            dp[pushed, popped] = dp[pushed - 1, popped];
+        else
+            dp[pushed, popped] = dp[pushed - 1, popped] + dp[pushed, popped - 1];
+    }
+}
+
+Console.WriteLine(dp[n, n]);
 ```
+
+### 关于遍历顺序的解释
+The condition tpush == tpop checks if the stack is empty, in which case we can only push values onto the stack. Therefore, we set `dp[tpush, tpop] = dp[tpush - 1, tpop]` to update the value of `dp[tpush, tpop]`.
+
+If the stack is not empty (`tpush < tpop`), then we can either push a value onto the stack (`dp[tpush - 1, tpop]`) or pop a value from the stack (`dp[tpush, tpop - 1]`). Therefore, we set `dp[tpush, tpop] = dp[tpush - 1, tpop] + dp[tpush, tpop - 1]` to update the value of `dp[tpush, tpop]`.
+
+The reason for starting the inner loop at tpush is that the values of `dp[tpush - 1, tpop` are computed before the values of `dp[tpush, tpop - 1]`. This is because the values of tpush are enumerated in increasing order, so the value of tpush - 1 is always less than or equal to the value of tpush.
+
+If we started the inner loop at `tpop = 1`, then we would need to compute the values of `dp[tpush, tpop - 1]` before the values of `dp[tpush - 1, tpop]`. This would require us to store the values of dp in a different order, which would make the algorithm more complicated.
+
+Therefore, enumerating the values of tpush before the values of tpop and starting the inner loop at tpush ensures that the values of dp are computed correctly and simplifies the implementation of the algorithm.
+
 ## Lunatic ~ P1003 [NOIP2011 提高组] 铺地毯
 [题目链接](https://www.luogu.com.cn/problem/P1003)
 ### 思路
