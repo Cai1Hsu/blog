@@ -4,7 +4,8 @@ date: 2023-10-23 11:01:21
 tags: ['算法', '动态规划', 'DP']
 ---
 
-## 查看代码源文件Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-3)
+## 查看代码源文件
+Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-3)
 C/C++ 自动构建: [前往 GitHub](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
 
 ## Easy ~ P1028 [NOIP2001 普及组] 数的计算
@@ -14,7 +15,7 @@ C/C++ 自动构建: [前往 GitHub](https://github.com/Cai1Hsu/blog/actions/work
 - 见代码注释
 
 ### 代码
-```Python3
+```Python
 n = int(input())
 # 0. cnt[i]用于储存`n = i`时的答案
 # 2. 当然，[`cnt[i]`] 本身也是合法数列
