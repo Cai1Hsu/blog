@@ -8,7 +8,7 @@ tags: ['算法', 'ACM']
 Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-4)
 C/C++ 自动构建: [前往 GitHub](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
 
-## Easy ~ B3637 最长上升子序列
+## 题符 「B3637 最长上升子序列」~ Easy
 [题目链接](https://www.luogu.com.cn/problem/B3637)
 
 ### 思路
@@ -37,8 +37,10 @@ for i in range(0, n):
 
 print(ans)
 ```
-## Normal ~ P1115 最大子段和
+
+## 题符 「P1115 最大子段和」~ Normal
 [题目链接](https://www.luogu.com.cn/problem/P1115)
+
 ### 思路
 1. 与上一道题相似，我们创建一个`dp[]`，其中`dp[i]`记录*包含i的最大子序列和*。
 2. 这样定义的原因在于，当我们读取到下一个元素的时候，我们可以很容易判断是否需要加上下一个元素。因为如果`arr[i + 1] > dp[i] + arr[i + 1]`，我们应该让该子序列为`[arr[i + 1]]`，而其他时候则加上`arr[i + 1]`，同时，当和相等时，我们应尽量加上新的值，因为后面可能有机会使得整个序列的和更大。
@@ -71,7 +73,8 @@ int main()
   cout << ans;
 }
 ```
-## Hard ~ P8707 [蓝桥杯 2020 省 AB1] 走方格
+
+## 题符 「P8707 走方格」~ Hard
 [题目链接](https://www.luogu.com.cn/problem/P8707)
 
 ### 思路
@@ -116,11 +119,16 @@ for (int i = 1; i < n; i++)
 Console.WriteLine(matrix[n - 1, m - 1]);
 ```
 
-## Lunatic ~ P1216 [USACO1.5] [IOI1994]数字三角形 Number Triangles
+## 题符 「P1216 数字三角形 Number Triangles」~ Lunatic
 [题目链接](https://www.luogu.com.cn/problem/P1216)
 
-## Extra ~ P1020 [NOIP1999 普及组] 导弹拦截
+## 题符 「P1020 导弹拦截」~ Extra
 [题目链接](https://www.luogu.com.cn/problem/P1020)
 
+## 思路
+
+## 代码
+```Rust
+```
 ## 博客仓库
 [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog)
