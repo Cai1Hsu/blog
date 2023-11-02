@@ -1,5 +1,5 @@
 ---
-title: '为 Xiaomi Civi 3 移植 LineageOS'
+title: '[UNFINISHED] 为 Xiaomi Civi 3 移植 LineageOS'
 date: 2023-10-27 11:36:05
 tags: ['Linux', 'Android', 'LineageOS', 'ROM']
 ---
