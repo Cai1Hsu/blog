@@ -1,10 +1,8 @@
 {
   "version": 2,
-  "dgSpecHash": "Z3L/u/BSbP87j3kHLPwl1Ah8VLQ3LdWEiCpjEm4/Lp/2B+NPc3vt3YG+Q4CDZ79qLJIYGcW4iqTHTr/cEEImyQ==",
+  "dgSpecHash": "YvQFAckyttwMJ6YmnD6gHfbsePOwHUEDVLBNKksSbgo6GUllD+UYazQM6RIRMVRHvU8USUvWYsZmiIzgISRcdQ==",
   "success": true,
   "projectFilePath": "/home/caiyi/repos/blog/acm/acm-3/P1044/P1044.csproj",
-  "expectedPackageFiles": [
-    "/home/caiyi/.nuget/packages/microsoft.aspnetcore.app.ref/7.0.12/microsoft.aspnetcore.app.ref.7.0.12.nupkg.sha512"
-  ],
+  "expectedPackageFiles": [],
   "logs": []
 }

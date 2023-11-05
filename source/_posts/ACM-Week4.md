@@ -4,6 +4,7 @@ date: 2023-10-30 10:44:34
 tags: ['算法', 'ACM']
 ---
 
+CI 疮了，我也疮了
 ## 查看代码源文件
 Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-4)
 C/C++ 自动构建: [前往 GitHub](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
