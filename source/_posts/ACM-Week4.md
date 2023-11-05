@@ -122,13 +122,113 @@ Console.WriteLine(matrix[n - 1, m - 1]);
 ## 题符 「P1216 数字三角形 Number Triangles」~ Lunatic
 [题目链接](https://www.luogu.com.cn/problem/P1216)
 
+## 思路
+1. 我们从三角形的倒数第二行开始向上遍历。对于每一行，我们遍历每一个元素，将它更新为它自身加上它下一行的两个相邻元素中的较大者。这样，每个元素都会变成从它开始到底部的最大路径的和。
+2. 当我们到达三角形的顶部时，triangle[0][0]就是我们要找的最大路径的和
+
+## 代码
+```Rust
+use std::io::stdin;
+use std::cmp::max;
+
+fn read_vector() -> Vec<i32> {
+    let mut str = String::new();
+    stdin().read_line(&mut str).unwrap();
+
+    str.split_whitespace()
+        .map(|s| s.trim().parse::<i32>().unwrap_or(0))
+        .collect()
+}
+
+fn main() {
+    let n = read_vector()[0] as usize;
+
+    let mut triangle: Vec<Vec<i32>> = Vec::new();
+
+    for _ in 0..n {
+        triangle.push(read_vector());
+    }
+
+    for i in (0..n-1).rev() {
+        for j in 0..=i {
+            triangle[i][j] = max(
+                *triangle.get(i + 1).and_then(|row| row.get(j)).unwrap_or(&0),
+                *triangle.get(i + 1).and_then(|row| row.get(j + 1)).unwrap_or(&0),
+            );
+        }
+    }
+
+    println!("{}", triangle[0][0]);
+}
+```
+
 ## 题符 「P1020 导弹拦截」~ Extra
 [题目链接](https://www.luogu.com.cn/problem/P1020)
 
 ## 思路
+1. 将题目抽象成模型: 最长不升子序列和最长上升子序列
+2. 求解最长不升子序列。我们使用动态规划的方法，dp[i]表示以第i个导弹为结尾的最长不升子序列的长度。对于每一个导弹，我们都检查在它之前的所有导弹，如果某个导弹的高度大于或等于它，那么我们就可以选择在这个导弹之后发射当前的导弹，所以dp[i]就可以更新为dp[j] + 1（其中arr[j] >= arr[i]）。我们用一个变量ans来记录最长不升子序列的长度，每次更新dp[i]的时候，都用它来更新ans。
+
+3. 求最长上升子序列。我们还是使用动态规划的方法，dp[i]表示以第i个导弹为结尾的最长上升子序列的长度。对于每一个导弹，我们都检查在它之前的所有导弹，如果某个导弹的高度小于它，那么我们就可以选择在这个导弹之后发射当前的导弹，所以dp[i]就可以更新为dp[j] + 1（其中arr[j] < arr[i]）。我们用一个变量ans来记录最长上升子序列的长度，每次更新dp[i]的时候，都用它来更新ans。
 
 ## 代码
-```Rust
+```Cpp
+#include<bits/stdc++.h>
+using namespace std;
+
+const int maxn = 100050;
+int arr[maxn], dp[maxn], s[maxn], n = 0, k, ans;
+
+void SearchAnswer(bool isGreater) {
+    for(int i = 1; i <= n; ++i) {
+        dp[i] = 1;
+        int left = 0, right = ans + 1;
+
+        while(right - left > 1) {
+            int mid = (left + right) >> 1;
+
+            if(isGreater) {
+                // on the right side
+                if(s[mid] >= arr[i]) {
+                    left = mid;
+                }
+                // on the left side
+                else {
+                    right = mid;
+                }
+            } else {
+                if(s[mid] < arr[i]) {
+                    left = mid;
+                }
+                else {
+                    right = mid;
+                }
+            }
+        }
+
+        dp[i] = left + 1;
+        s[dp[i]] = arr[i];
+        ans = max(ans, dp[i]);
+    }
+}
+
+int main() {
+    ios::sync_with_stdio(0);
+
+    while(cin >> k)
+        arr[++n] = k;
+
+    SearchAnswer(true);
+    cout << ans << endl;
+    
+    ans = 0;
+    memset(s, 0, sizeof(s));
+
+    SearchAnswer(false);
+    cout << ans << endl;
+
+    return 0;
+}
 ```
 ## 博客仓库
 [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog)
