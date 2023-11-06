@@ -90,3 +90,8 @@ print(V - ans)
 ### 思路
 
 ### 代码
+
+
+## 查看代码源文件
+Visit [Cai1Hsu/blog](https://github.com/Cai1Hsu/blog/tree/master/acm/acm-5)
+C/C++ 自动构建: [前往 GitHub](https://github.com/Cai1Hsu/blog/actions/workflows/build.yml)
