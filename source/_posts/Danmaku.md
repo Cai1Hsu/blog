@@ -1,5 +1,5 @@
 ---
-title: '[Danmaku\!] 开发记录'
+title: '[Danmaku!] 开发记录'
 date: 2023-11-05 09:14:46
 tags: ['Game Engine', 'SDL', 'OpenGL']
 ---
