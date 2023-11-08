@@ -10,6 +10,7 @@ A simple game engine to create stg game (and other 2D game).
 
 ## Repo
 [Cai1Hsu/DanmakuEngine](https://github.com/Cai1Hsu/DanmakuEngine)
+currently private
 
 ## InputHander
 We use a InputHander to handle all kinds of input, although we only have to handle keyboard currently.
@@ -40,6 +41,16 @@ currently finished
 ## Render
 use SDL as backend to simplify development
 
+## Migrarte to SDL
+basically finished
+### TODO
+fix the game updates at a *very* high rate when under background mode even with `Vsync` enabled
+*very* high means `fps > 300, 000`
+
+## Logger
+### Fix Log save in Windows
+### Fix Color lock
+
 ## Scheduling
 Scheduler
 
@@ -56,5 +67,4 @@ support multiple bindings.
 
 ## rewrite argument parser
 separate paramaters and arguments
-
 
