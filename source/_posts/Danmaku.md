@@ -12,6 +12,9 @@ A simple game engine to create stg game (and other 2D game).
 [Cai1Hsu/DanmakuEngine](https://github.com/Cai1Hsu/DanmakuEngine)
 currently private
 
+## Next step
+编写Source Generator来重新实现依赖注入容器以实现NativeAOT兼容
+
 ## InputHander
 We use a InputHander to handle all kinds of input, although we only have to handle keyboard currently.
 It handles `TopKeyboardHandler` directly. Then, the `TopKeyboardHandler` sends the event to the `UserkeyboardHandler` which belongs to the `screen` at the top of the `ScreenStack`.
