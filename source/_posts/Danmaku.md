@@ -13,7 +13,10 @@ A simple game engine to create stg game (and other 2D game).
 currently private
 
 ## Next step
-编写Source Generator来重新实现依赖注入容器以实现NativeAOT兼容
+[X] 编写Source Generator来重新实现依赖注入容器以实现NativeAOT兼容
+    basically finished
+### TODO
+修复源生成器不对不包含用`[Inject]`标记成员生成代码，应该以类是否实现`IInejctable`来判断，否则对某些抽象类可能不起作用
 
 ## InputHander
 We use a InputHander to handle all kinds of input, although we only have to handle keyboard currently.
