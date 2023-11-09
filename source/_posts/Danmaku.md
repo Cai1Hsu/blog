@@ -16,8 +16,9 @@ currently private
 [X] 编写Source Generator来重新实现依赖注入容器以实现NativeAOT兼容
     basically finished
 ### TODO
-修复源生成器不对不包含用`[Inject]`标记成员生成代码，应该以类是否实现`IInejctable`来判断，否则对某些抽象类可能不起作用
-
+1. 修复源生成器不对不包含用`[Inject]`标记成员生成代码，应该以类是否实现`IInejctable`来判断，否则对某些抽象类可能不起作用
+2. Vsync开启时，更新频率只有刷新率的一半
+;
 ## InputHander
 We use a InputHander to handle all kinds of input, although we only have to handle keyboard currently.
 It handles `TopKeyboardHandler` directly. Then, the `TopKeyboardHandler` sends the event to the `UserkeyboardHandler` which belongs to the `screen` at the top of the `ScreenStack`.
