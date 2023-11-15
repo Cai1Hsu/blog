@@ -1,17 +1,17 @@
 {
   "format": 1,
   "restore": {
-    "/home/caiyi/repos/blog/acm/acm-3/P1044/P1044.csproj": {}
+    "/home/caiyi/repos/blog/acm/biweek-2/4/4.csproj": {}
   },
   "projects": {
-    "/home/caiyi/repos/blog/acm/acm-3/P1044/P1044.csproj": {
+    "/home/caiyi/repos/blog/acm/biweek-2/4/4.csproj": {
       "version": "1.0.0",
       "restore": {
-        "projectUniqueName": "/home/caiyi/repos/blog/acm/acm-3/P1044/P1044.csproj",
-        "projectName": "P1044",
-        "projectPath": "/home/caiyi/repos/blog/acm/acm-3/P1044/P1044.csproj",
+        "projectUniqueName": "/home/caiyi/repos/blog/acm/biweek-2/4/4.csproj",
+        "projectName": "4",
+        "projectPath": "/home/caiyi/repos/blog/acm/biweek-2/4/4.csproj",
         "packagesPath": "/home/caiyi/.nuget/packages/",
-        "outputPath": "/home/caiyi/repos/blog/acm/acm-3/P1044/obj/",
+        "outputPath": "/home/caiyi/repos/blog/acm/biweek-2/4/obj/",
         "projectStyle": "PackageReference",
         "configFilePaths": [
           "/home/caiyi/.nuget/NuGet/NuGet.Config"

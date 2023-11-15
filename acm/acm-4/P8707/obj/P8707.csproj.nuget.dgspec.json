@@ -20,6 +20,7 @@
           "net7.0"
         ],
         "sources": {
+          "/usr/share/dotnet/library-packs": {},
           "https://nuget.cdn.azure.cn/v3/index.json": {}
         },
         "frameworks": {
