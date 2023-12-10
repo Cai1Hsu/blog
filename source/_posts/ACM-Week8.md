@@ -65,3 +65,156 @@ while queue:
             heapq.heappush(queue, (dist[v], v))
 print(' '.join(map(str, dist[1:])))
 ```
+
+## P2661 [NOIP2015 提高组] 信息传递
+
+### 思路
+初始化一个数组，用于存储每个节点的状态。0表示未访问，1表示正在访问，2表示已访问。
+对于每个节点，如果它未被访问，就从它开始进行深度优先搜索。
+在深度优先搜索中，如果我们遇到一个正在访问的节点，那么我们就找到了一个环。我们可以通过当前节点的深度减去环开始节点的深度加1来计算环的长度。
+更新游戏可以进行的最大轮数。
+
+### 代码
+```Cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int MAXN = 2e5+7;
+int n, ans = 0;
+int Next[MAXN], vis[MAXN], dis[MAXN];
+
+void dfs(int x) {
+    vis[x] = 1;
+    if(!vis[Next[x]]) {
+        dis[Next[x]] = dis[x] + 1;
+        dfs(Next[x]);
+    } else if(vis[Next[x]] == 1) {
+        ans = max(ans, dis[x] - dis[Next[x]] + 1);
+    }
+    vis[x] = 2;
+}
+
+int main() {
+    cin >> n;
+    for(int i = 1; i <= n; i++) cin >> Next[i];
+    for(int i = 1; i <= n; i++) {
+        if(!vis[i]) {
+            dis[i] = 1;
+            dfs(i);
+        }
+    }
+    cout << ans << endl;
+    return 0;
+}
+```
+
+## P1144 最短路计数
+
+### 思路
+BFS, DP
+
+初始化两个数组，一个用于存储每个节点的最短距离，一个用于存储每个节点的最短路径数量。将所有节点的最短距离设置为无穷大，将节点1的最短路径数量设置为1。
+使用广度优先搜索从节点1开始遍历图。对于每个访问的节点，如果它的最短距离大于当前节点的最短距离加1，那么更新它的最短距离和最短路径数量。如果它的最短距离等于当前节点的最短距离加1，那么增加它的最短路径数量。
+输出每个节点的最短路径数量。
+
+### 代码
+```Cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int MAXN = 1e6+7;
+const int MOD = 100003;
+vector<int> edge[MAXN];
+int dis[MAXN], cnt[MAXN];
+
+void bfs() {
+    queue<int> q;
+    memset(dis, 0x3f, sizeof(dis));
+    dis[1] = 0;
+    cnt[1] = 1;
+    q.push(1);
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i = 0; i < edge[u].size(); i++) {
+            int v = edge[u][i];
+            if(dis[u] + 1 < dis[v]) {
+                dis[v] = dis[u] + 1;
+                cnt[v] = cnt[u];
+                q.push(v);
+            } else if(dis[u] + 1 == dis[v]) {
+                cnt[v] = (cnt[v] + cnt[u]) % MOD;
+            }
+        }
+    }
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        edge[u].push_back(v);
+        edge[v].push_back(u);
+    }
+    bfs();
+    for(int i = 1; i <= n; i++) {
+        cout << cnt[i] << endl;
+    }
+    return 0;
+}
+```
+
+## [蓝桥杯 2022 国 A] 环境治理
+
+### 思路
+初始化两个数组，一个用于存储每个节点的最短距离，一个用于存储每个节点的最短路径数量。将所有节点的最短距离设置为无穷大，将节点1的最短路径数量设置为1。
+使用广度优先搜索从节点1开始遍历图。对于每个访问的节点，如果它的最短距离大于当前节点的最短距离加1，那么更新它的最短距离和最短路径数量。如果它的最短距离等于当前节点的最短距离加1，那么增加它的最短路径数量。
+输出每个节点的最短路径数量。
+
+### 代码
+```Cpp
+#include<bits/stdc++.h>
+using namespace std;
+const int MAXN = 1e6+7;
+const int MOD = 100003;
+vector<int> edge[MAXN];
+int dis[MAXN], cnt[MAXN];
+
+void bfs() {
+    queue<int> q;
+    memset(dis, 0x3f, sizeof(dis));
+    dis[1] = 0;
+    cnt[1] = 1;
+    q.push(1);
+    while(!q.empty()) {
+        int u = q.front();
+        q.pop();
+        for(int i = 0; i < edge[u].size(); i++) {
+            int v = edge[u][i];
+            if(dis[u] + 1 < dis[v]) {
+                dis[v] = dis[u] + 1;
+                cnt[v] = cnt[u];
+                q.push(v);
+            } else if(dis[u] + 1 == dis[v]) {
+                cnt[v] = (cnt[v] + cnt[u]) % MOD;
+            }
+        }
+    }
+}
+
+int main() {
+    int n, m;
+    cin >> n >> m;
+    for(int i = 0; i < m; i++) {
+        int u, v;
+        cin >> u >> v;
+        edge[u].push_back(v);
+        edge[v].push_back(u);
+    }
+    bfs();
+    for(int i = 1; i <= n; i++) {
+        cout << cnt[i] << endl;
+    }
+    return 0;
+}
+```
