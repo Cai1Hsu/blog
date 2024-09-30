@@ -1,0 +1,7 @@
+{
+    // Disable .NET language server
+    "omnisharp.enableMsBuildLoadProjectsOnDemand": false,
+    "omnisharp.useModernNet": false,
+    "omnisharp.path": "",
+    "dotnet.server.useOmniSharp": false
+}
